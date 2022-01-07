@@ -4,6 +4,9 @@ import React, { useState } from 'react'
 import Card from "../UI/Card";
 import ExpenseItem from './ExpenseItem';
 import ExpenseFilter from './ExpenseFilter';
+import ExpenseList from './ExpenseList';
+import ExpenseChart from './ExpenseChart';
+
 
 // Import css
 import "./Expense.css";
@@ -18,19 +21,19 @@ export default function Expense(props) {
         return item.date.getFullYear().toString() === selected;
     })
 
-    let expenseContent = <h2>No Expense on this year!</h2>
 
-    if (filteredExpense.length > 0) {
-        expenseContent = filteredExpense.map(item => {
-            return <ExpenseItem key={item.id} date={item.date} title={item.title} price={item.amount} />
-        })
-    }
 
 
     return (
+
         <Card className="expense">
+
             <ExpenseFilter onSelected={selectedHandler} selected={selected} />
-            {expenseContent}
+            <ExpenseChart expenses={filteredExpense} />
+            <ExpenseList items={filteredExpense} />
+
+
         </Card>
+
     )
 }

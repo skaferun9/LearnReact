@@ -38,7 +38,7 @@ export default function ExpenseForm(props) {
         event.preventDefault();
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate),
         }
 
@@ -46,6 +46,7 @@ export default function ExpenseForm(props) {
         setEnteredTitle("");
         setEnteredAmount(0);
         setEnteredDate("");
+        props.formVisible(false);
     }
 
 
