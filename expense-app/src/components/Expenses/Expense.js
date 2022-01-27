@@ -27,12 +27,9 @@ export default function Expense(props) {
     return (
 
         <Card className="expense">
-
             <ExpenseFilter onSelected={selectedHandler} selected={selected} />
             <ExpenseChart expenses={filteredExpense} />
             <ExpenseList items={filteredExpense} />
-
-
         </Card>
 
     )
